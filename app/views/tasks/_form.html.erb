@@ -1,0 +1,21 @@
+<%= form_for(task) do |f| %>
+ <% if task.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(task.errors.count, "error") %> prohibited this message from being saved:</h2>
+
+      <ul>
+        <% task.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.label :status, "ステイタス" %>
+  <%= f.select :status, [["進行中","進行中"],["達成","達成"]] %>
+  
+  <%= f.label :content, "タスク" %>
+  <%= f.text_field :content %>
+  
+  <%= f.submit "登録" %>
+<% end %>
