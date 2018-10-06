@@ -1,21 +1,32 @@
-<%= form_for(task) do |f| %>
- <% if task.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(task.errors.count, "error") %> prohibited this message from being saved:</h2>
-
-      <ul>
-        <% task.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+<div class ="row">
+  <div class="col-xs-12">
+    <div class="col-sm-offset-2 col-sm-8">
+      <div class="col-lg-offset-3 col-lg-6">
+        <%= form_for(task) do |f| %>
+         <% if task.errors.any? %>
+            <div id="error_explanation">
+        
+              <ul>
+                <% task.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+          
+          <div class="form-group">
+          <%= f.label :status, "ステイタス" %>
+          <%= f.select :status, [["進行中","進行中"],["達成","達成"]] %>
+          </div>
+          
+          <div class="form-group">
+          <%= f.label :content, "タスク" %>
+          <%= f.text_field :content %>
+          </div>
+          
+          <%= f.submit "登録", class: "form_for" %>
         <% end %>
-      </ul>
+      </div>
     </div>
-  <% end %>
-
-  <%= f.label :status, "ステイタス" %>
-  <%= f.select :status, [["進行中","進行中"],["達成","達成"]] %>
-  
-  <%= f.label :content, "タスク" %>
-  <%= f.text_field :content %>
-  
-  <%= f.submit "登録" %>
-<% end %>
+  </div>
+</div>
