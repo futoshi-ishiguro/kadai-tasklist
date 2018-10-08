@@ -1,32 +1,32 @@
 <div class ="row">
   <div class="col-xs-12">
-    <div class="col-sm-offset-2 col-sm-8">
-      <div class="col-lg-offset-3 col-lg-6">
-        <%= form_for(task) do |f| %>
-         <% if task.errors.any? %>
-            <div id="error_explanation">
+  <div class="col-sm-offset-2 col-sm-8">
+  <div class="col-lg-offset-3 col-lg-6">
+    <%= form_for(task) do |f| %>
+      <% if task.errors.any? %>
+        <div id="error_explanation">
         
-              <ul>
-                <% task.errors.full_messages.each do |message| %>
-                  <li><%= message %></li>
-                <% end %>
-              </ul>
-            </div>
-          <% end %>
+          <ul>
+            <% task.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
           
-          <div class="form-group">
-          <%= f.label :status, "ステイタス" %>
-          <%= f.select :status, [["進行中","進行中"],["達成","達成"]] %>
-          </div>
-          
-          <div class="form-group">
-          <%= f.label :content, "タスク" %>
-          <%= f.text_field :content %>
-          </div>
-          
-          <%= f.submit "登録", class: "form_for" %>
-        <% end %>
+      <div class="form-group">
+        <%= f.label :status, "ステイタス" %>
+        <%= f.select :status, [["進行中","進行中"],["達成","達成"]], class: "form-control" %>
       </div>
-    </div>
+          
+      <div class="form-group">
+        <%= f.label :content, "タスク" %>
+        <%= f.text_field :content, class: "form-control" %>
+      </div>
+          
+      <%= f.submit "登録", class: "form_for", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+  </div>
   </div>
 </div>
